@@ -1,4 +1,4 @@
-package com.tcs.assurance.employees;
+package com.tcs.assurance.employees.model;
 
 import com.sun.javafx.beans.IDProperty;
 

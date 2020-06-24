@@ -1,5 +1,7 @@
-package com.tcs.assurance.employees;
+package com.tcs.assurance.employees.service;
 
+import com.tcs.assurance.employees.model.Departamento;
+import com.tcs.assurance.employees.repository.DepartamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ public class DepartamentoService {
     }
 
     public void save(Departamento departamento){
+
+
         repository.save(departamento);
     }
 

@@ -22,7 +22,6 @@ public class Departamento {
     }
 
     public Departamento(Integer iddepartamento, String nombre, String descripcion, Integer codigo) {
-        super();
         this.iddepartamento = iddepartamento;
         this.nombre = nombre;
         this.descripcion = descripcion;

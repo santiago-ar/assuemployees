@@ -17,19 +17,20 @@ public class DepartamentoService {
     private EmpleadoRepository empleadoRepository;
 
 
-    public List<Departamento> listAll(){
+    public List<Departamento> listAll() {
         return repository.findAll();
     }
 
-    public void save(Departamento departamento){
+    public void save(Departamento departamento) {
+
         repository.save(departamento);
     }
 
-    public Departamento get(Integer id){
+    public Departamento get(Integer id) {
         return repository.findById(id).get();
     }
 
-    public void delete(Integer id){
+    public void delete(Integer id) {
         repository.deleteById(id);
     }
 }

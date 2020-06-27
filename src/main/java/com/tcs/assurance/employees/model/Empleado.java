@@ -1,34 +1,41 @@
 package com.tcs.assurance.employees.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Empleado {
-
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer idempleado;
+    @Column(name = "nombre", length = 20, nullable = false)
     private String nombre;
-    private String numeroDocumento;
+    @Column(name = "numerodocumento", length = 20, nullable = false)
+    private String numerodocumento;
+
+
     private String correo;
     private String telefono;
     private Boolean activo;
     private double salario;
-    private Integer iddepartamento;
 
-    public Empleado(Integer idempleado, String nombre, String numeroDocumento, String correo, String telefono, Boolean activo, double salario, Integer iddepartamento) {
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="iddepartamento")
+    private Departamento iddepartamento;
+
+    public Empleado() {
+    }
+
+    public Empleado(Integer idempleado, String nombre, String numeroDocumento, String correo, String telefono, Boolean activo, double salario, Departamento iddepartamento) {
         this.idempleado = idempleado;
         this.nombre = nombre;
-        this.numeroDocumento = numeroDocumento;
+        this.numerodocumento = numeroDocumento;
         this.correo = correo;
         this.telefono = telefono;
         this.activo = activo;
         this.salario = salario;
         this.iddepartamento = iddepartamento;
     }
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+
     public Integer getIdempleado() {
         return idempleado;
     }
@@ -46,11 +53,11 @@ public class Empleado {
     }
 
     public String getNumeroDocumento() {
-        return numeroDocumento;
+        return numerodocumento;
     }
 
     public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
+        this.numerodocumento = numeroDocumento;
     }
 
     public String getCorreo() {
@@ -85,11 +92,11 @@ public class Empleado {
         this.salario = salario;
     }
 
-    public Integer getIddepartamento() {
+    public Departamento getIddepartamento() {
         return iddepartamento;
     }
 
-    public void setIddepartamento(Integer iddepartamento) {
+    public void setIddepartamento(Departamento iddepartamento) {
         this.iddepartamento = iddepartamento;
     }
 }

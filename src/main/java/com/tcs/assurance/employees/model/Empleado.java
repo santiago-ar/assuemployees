@@ -3,6 +3,7 @@ package com.tcs.assurance.employees.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "empleado")
 public class Empleado {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -11,7 +12,6 @@ public class Empleado {
     private String nombre;
     @Column(name = "numerodocumento", length = 20, nullable = false)
     private String numerodocumento;
-
 
     private String correo;
     private String telefono;

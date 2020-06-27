@@ -8,6 +8,7 @@ public class Funciones {
     private Integer idfunciones;
     private String nombre;
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="iddepartamento")
     private Departamento iddepartamento;
 
     public Funciones(Integer idfunciones, String nombre) {

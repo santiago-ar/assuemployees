@@ -1,6 +1,8 @@
 package com.tcs.assurance.employees.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "empleado")
@@ -18,22 +20,28 @@ public class Empleado {
     private Boolean activo;
     private double salario;
 
+    //DistintosEmpleados pueden tener un departamento
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="iddepartamento")
     private Departamento iddepartamento;
+    //Un empleado puede tener muchas funciones
+    @OneToMany(mappedBy="idfunciones")
+    private List<Funciones> listaFunciones;
 
     public Empleado() {
     }
 
-    public Empleado(Integer idempleado, String nombre, String numeroDocumento, String correo, String telefono, Boolean activo, double salario, Departamento iddepartamento) {
+
+    public Empleado(Integer idempleado, String nombre, String numerodocumento, String correo, String telefono, Boolean activo, double salario, Departamento iddepartamento, List<Funciones> listaFunciones) {
         this.idempleado = idempleado;
         this.nombre = nombre;
-        this.numerodocumento = numeroDocumento;
+        this.numerodocumento = numerodocumento;
         this.correo = correo;
         this.telefono = telefono;
         this.activo = activo;
         this.salario = salario;
         this.iddepartamento = iddepartamento;
+        this.listaFunciones = listaFunciones;
     }
 
     public Integer getIdempleado() {
@@ -98,5 +106,21 @@ public class Empleado {
 
     public void setIddepartamento(Departamento iddepartamento) {
         this.iddepartamento = iddepartamento;
+    }
+
+    public String getNumerodocumento() {
+        return numerodocumento;
+    }
+
+    public void setNumerodocumento(String numerodocumento) {
+        this.numerodocumento = numerodocumento;
+    }
+
+    public List<Funciones> getListaFunciones() {
+        return listaFunciones;
+    }
+
+    public void setListaFunciones(List<Funciones> listaFunciones) {
+        this.listaFunciones = listaFunciones;
     }
 }

@@ -11,6 +11,9 @@ public class Funciones {
     @JoinColumn(name="iddepartamento")
     private Departamento iddepartamento;
 
+    public Funciones() {
+    }
+
     public Funciones(Integer idfunciones, String nombre) {
         this.idfunciones = idfunciones;
         this.nombre = nombre;

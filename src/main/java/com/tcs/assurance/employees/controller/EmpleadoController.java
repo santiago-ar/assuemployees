@@ -28,7 +28,7 @@ public class EmpleadoController {
 
 
     //PromedioDeSaliaroEmpleadoPorIdDepartamento
-    @GetMapping("/empleados/{id}")
+    @GetMapping("/empleados/promedioporid/{id}")
     public Double getProm(@PathVariable Integer id){
         return empleadoService.payment(id);
     }

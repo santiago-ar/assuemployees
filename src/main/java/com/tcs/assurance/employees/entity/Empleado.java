@@ -11,6 +11,7 @@ public class Empleado {
     private Integer idempleado;
     @Column(name = "nombre", length = 20, nullable = false)
     private String nombre;
+    private String apellidos;
     @Column(name = "numerodocumento", length = 20, nullable = false)
     private String numerodocumento;
 
@@ -20,7 +21,7 @@ public class Empleado {
     private double salario;
 
     //DistintosEmpleados pueden tener un departamento
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name="iddepartamento")
     private Departamento iddepartamento;
     //Un empleado puede tener muchas funciones
@@ -30,10 +31,10 @@ public class Empleado {
     public Empleado() {
     }
 
-
-    public Empleado(Integer idempleado, String nombre, String numerodocumento, String correo, String telefono, Boolean activo, double salario, Departamento iddepartamento, List<Funciones> listaFunciones) {
+    public Empleado(Integer idempleado, String nombre, String apellidos, String numerodocumento, String correo, String telefono, Boolean activo, double salario, Departamento iddepartamento, List<Funciones> listaFunciones) {
         this.idempleado = idempleado;
         this.nombre = nombre;
+        this.apellidos = apellidos;
         this.numerodocumento = numerodocumento;
         this.correo = correo;
         this.telefono = telefono;
@@ -121,5 +122,13 @@ public class Empleado {
 
     public void setListaFunciones(List<Funciones> listaFunciones) {
         this.listaFunciones = listaFunciones;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 }

@@ -1,16 +1,13 @@
 package com.tcs.assurance.employees.service;
 
 
-import com.tcs.assurance.employees.model.Departamento;
-import com.tcs.assurance.employees.model.Empleado;
-import com.tcs.assurance.employees.model.Promedio;
-import com.tcs.assurance.employees.repository.DepartamentoRepository;
+import com.tcs.assurance.employees.entity.Empleado;
+import com.tcs.assurance.employees.entity.Promedio;
 import com.tcs.assurance.employees.repository.EmpleadoRepository;
 import com.tcs.assurance.employees.repository.PromedioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Collections;
 import java.util.List;
 

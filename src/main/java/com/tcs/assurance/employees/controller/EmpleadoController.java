@@ -1,8 +1,7 @@
 package com.tcs.assurance.employees.controller;
 
 
-import com.tcs.assurance.employees.model.Departamento;
-import com.tcs.assurance.employees.model.Empleado;
+import com.tcs.assurance.employees.entity.Empleado;
 import com.tcs.assurance.employees.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

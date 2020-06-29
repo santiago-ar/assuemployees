@@ -1,7 +1,6 @@
-package com.tcs.assurance.employees.model;
+package com.tcs.assurance.employees.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity

@@ -1,6 +1,6 @@
 package com.tcs.assurance.employees.service;
 
-import com.tcs.assurance.employees.model.Departamento;
+import com.tcs.assurance.employees.entity.Departamento;
 import com.tcs.assurance.employees.repository.DepartamentoRepository;
 import com.tcs.assurance.employees.repository.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,9 +5,12 @@ import com.tcs.assurance.employees.model.Departamento;
 import com.tcs.assurance.employees.model.Empleado;
 import com.tcs.assurance.employees.service.EmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 public class EmpleadoController {
@@ -33,5 +36,15 @@ public class EmpleadoController {
         return empleadoService.payment(id);
     }
 
+    //Listar por documento de empleado
+    @GetMapping("/empleados/{documento}")
+    public ResponseEntity<Empleado> get(@PathVariable String documento) {
+        try {
+            Empleado empleado = empleadoService.findByNumerodocumento(documento);
+            return new ResponseEntity<Empleado>(empleado, HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<Empleado>(HttpStatus.NOT_FOUND);
+        }
+    }
 
 }

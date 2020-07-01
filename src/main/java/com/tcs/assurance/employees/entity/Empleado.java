@@ -108,14 +108,6 @@ public class Empleado {
         this.iddepartamento = iddepartamento;
     }
 
-    public String getNumerodocumento() {
-        return numerodocumento;
-    }
-
-    public void setNumerodocumento(String numerodocumento) {
-        this.numerodocumento = numerodocumento;
-    }
-
     public List<Funciones> getListaFunciones() {
         return listaFunciones;
     }
